@@ -10,6 +10,7 @@ public class CalcFormTable extends JFrame {
 	private BtnPanel btnPanel;
 	private textPanel textPanel;
 			
+	
 	public CalcFormTable(){
 		
 		super("Calculator");
