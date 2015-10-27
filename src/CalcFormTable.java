@@ -14,15 +14,16 @@ public class CalcFormTable extends JFrame {
 	public CalcFormTable(){
 		
 		super("Calculator");
-		setBounds(700, 200, 250, 400);
+		setBounds(700, 200, 250, 350);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLayout(new BorderLayout());
+		setLayout(new BorderLayout(0,50));
 		setJMenuBar(createMenuBar());
 		
 		textPanel = new textPanel();
 		add(textPanel,BorderLayout.NORTH);
 		
+	
 		btnPanel = new BtnPanel();
 		add(btnPanel, BorderLayout.CENTER);
 	}
