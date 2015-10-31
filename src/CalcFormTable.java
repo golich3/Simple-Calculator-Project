@@ -9,6 +9,7 @@ public class CalcFormTable extends JFrame {
 
 	private BtnPanel btnPanel;
 	private TxtPanel TxtPanel;
+	private String txt;
 			
 	
 	public CalcFormTable(){
@@ -26,6 +27,8 @@ public class CalcFormTable extends JFrame {
 	
 		btnPanel = new BtnPanel();
 		add(btnPanel, BorderLayout.CENTER);
+		
+		txt = btnPanel.getTxt();
 	}
 
 	private JMenuBar createMenuBar() {
@@ -39,4 +42,5 @@ public class CalcFormTable extends JFrame {
 		menu.add(file);
 		return menu;
 	}
+	
 }
