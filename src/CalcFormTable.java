@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 public class CalcFormTable extends JFrame {
 
 	private BtnPanel btnPanel;
-	private textPanel textPanel;
+	private TxtPanel TxtPanel;
 			
 	
 	public CalcFormTable(){
@@ -20,8 +20,8 @@ public class CalcFormTable extends JFrame {
 		setLayout(new BorderLayout(0,50));
 		setJMenuBar(createMenuBar());
 		
-		textPanel = new textPanel();
-		add(textPanel,BorderLayout.NORTH);
+		TxtPanel = new TxtPanel();
+		add(TxtPanel,BorderLayout.NORTH);
 		
 	
 		btnPanel = new BtnPanel();
