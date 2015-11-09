@@ -1,4 +1,3 @@
-
 public interface IBtnPanel {
-public void btnPanelTxtFieldIsFilled();
+	public void equalBtnIsClicked(String txt);
 }

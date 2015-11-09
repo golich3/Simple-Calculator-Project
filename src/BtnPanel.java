@@ -9,10 +9,15 @@ import javax.swing.JPanel;
 public class BtnPanel extends JPanel {
 
 	private String txt;
+	private IBtnPanel iBtnPanel;
 
 	public String getTxt() {
 		return txt;
 	}
+	public void setiBtnPanel(IBtnPanel iBtnPanel) {
+		this.iBtnPanel = iBtnPanel;
+	}
+
 
 	public BtnPanel() {
 		setLayout(new GridBagLayout());
@@ -30,7 +35,7 @@ public class BtnPanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				txt = btn1.getText();
+				txt += btn1.getText();
 			}
 		});
 
@@ -42,7 +47,7 @@ public class BtnPanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				txt = btn2.getText();
+				txt += btn2.getText();
 			}
 		});
 
@@ -54,7 +59,7 @@ public class BtnPanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				txt = btn3.getText();
+				txt += btn3.getText();
 			}
 		});
 
@@ -66,7 +71,7 @@ public class BtnPanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				txt = btn4.getText();
+				txt += btn4.getText();
 			}
 		});
 
@@ -78,7 +83,7 @@ public class BtnPanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				txt = btnAdd.getText();
+				txt += btnAdd.getText();
 			}
 		});
 
@@ -90,7 +95,7 @@ public class BtnPanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				txt = btnMul.getText();
+				txt += btnMul.getText();
 			}
 		});
 
@@ -102,7 +107,7 @@ public class BtnPanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				txt = btnDiv.getText();
+				txt += btnDiv.getText();
 			}
 		});
 
@@ -114,7 +119,7 @@ public class BtnPanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				txt = btnEqual.getText();
+				iBtnPanel.equalBtnIsClicked(txt);
 			}
 		});
 

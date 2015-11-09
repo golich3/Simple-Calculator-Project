@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -9,26 +10,49 @@ public class CalcFormTable extends JFrame {
 
 	private BtnPanel btnPanel;
 	private TxtPanel TxtPanel;
-	private String txt;
-			
+	private String framTxtField;
+	private ICalculation iCalc;
 	
-	public CalcFormTable(){
-		
+	public String getFramTxtField() {
+		return framTxtField;
+	}
+
+	public void setFramTxtField(String framTxtField) {
+		this.framTxtField = framTxtField;
+	}
+
+	
+	public void setiCalc(ICalculation iCalc) {
+		this.iCalc = iCalc;
+	}
+
+	public CalcFormTable() {
+
 		super("Calculator");
 		setBounds(700, 200, 250, 350);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLayout(new BorderLayout(0,50));
+		setLayout(new BorderLayout(0, 50));
 		setJMenuBar(createMenuBar());
-		
+
 		TxtPanel = new TxtPanel();
-		add(TxtPanel,BorderLayout.NORTH);
-		
-	
+		add(TxtPanel, BorderLayout.NORTH);
+
 		btnPanel = new BtnPanel();
 		add(btnPanel, BorderLayout.CENTER);
+
+		framTxtField = btnPanel.getTxt();
+
+		btnPanel.setiBtnPanel(new IBtnPanel() {
+
+			@Override
+			public void equalBtnIsClicked(String txt) {
+				setFramTxtField(txt);
+
+			}
+		});
 		
-		txt = btnPanel.getTxt();
+		iCalc.getTextFromcalcFormTable(framTxtField);
 	}
 
 	private JMenuBar createMenuBar() {
@@ -37,10 +61,10 @@ public class CalcFormTable extends JFrame {
 		JMenuItem save = new JMenuItem();
 		save.setIcon(Utils.createIcon("/image/Save16.gif"));
 		save.setToolTipText("save to DB");
-		
+
 		file.add(save);
 		menu.add(file);
 		return menu;
 	}
-	
+
 }
