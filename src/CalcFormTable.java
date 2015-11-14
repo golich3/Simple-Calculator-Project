@@ -11,20 +11,16 @@ public class CalcFormTable extends JFrame {
 	private BtnPanel btnPanel;
 	private TxtPanel TxtPanel;
 	private String framTxtField;
-	private ICalculation iCalc;
-	
+	//private ICalculation iCalc;
 	public String getFramTxtField() {
 		return framTxtField;
 	}
-
 	public void setFramTxtField(String framTxtField) {
 		this.framTxtField = framTxtField;
 	}
-
-	
-	public void setiCalc(ICalculation iCalc) {
-		this.iCalc = iCalc;
-	}
+//	public void setiCalc(ICalculation iCalc) {
+//		this.iCalc = iCalc;
+//	}
 
 	public CalcFormTable() {
 
@@ -46,13 +42,16 @@ public class CalcFormTable extends JFrame {
 		btnPanel.setiBtnPanel(new IBtnPanel() {
 
 			@Override
+			public void btnPanelTextFieldIsFilled(String txt) {
+			setFramTxtField(txt);
+				TxtPanel.result.setText(framTxtField);	
+			}
+			
+			@Override
 			public void equalBtnIsClicked(String txt) {
-				setFramTxtField(txt);
-
+				calculate(framTxtField);
 			}
 		});
-		
-		iCalc.getTextFromcalcFormTable(framTxtField);
 	}
 
 	private JMenuBar createMenuBar() {
@@ -66,5 +65,8 @@ public class CalcFormTable extends JFrame {
 		menu.add(file);
 		return menu;
 	}
-
+	public String calculate(String input){
+		String calcResult = input;
+		return calcResult;
+	}
 }

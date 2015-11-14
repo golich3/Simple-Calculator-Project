@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 public class BtnPanel extends JPanel {
 
-	private String txt;
+	private String txt="";
 	private IBtnPanel iBtnPanel;
 
 	public String getTxt() {
@@ -36,6 +36,7 @@ public class BtnPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent event) {
 				txt += btn1.getText();
+				iBtnPanel.btnPanelTextFieldIsFilled(txt);
 			}
 		});
 
@@ -48,6 +49,7 @@ public class BtnPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent event) {
 				txt += btn2.getText();
+				iBtnPanel.btnPanelTextFieldIsFilled(txt);
 			}
 		});
 
@@ -60,6 +62,7 @@ public class BtnPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent event) {
 				txt += btn3.getText();
+				iBtnPanel.btnPanelTextFieldIsFilled(txt);
 			}
 		});
 
@@ -72,6 +75,7 @@ public class BtnPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent event) {
 				txt += btn4.getText();
+				iBtnPanel.btnPanelTextFieldIsFilled(txt);
 			}
 		});
 
@@ -84,6 +88,7 @@ public class BtnPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent event) {
 				txt += btnAdd.getText();
+				iBtnPanel.btnPanelTextFieldIsFilled(txt);
 			}
 		});
 
@@ -96,6 +101,7 @@ public class BtnPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent event) {
 				txt += btnMul.getText();
+				iBtnPanel.btnPanelTextFieldIsFilled(txt);
 			}
 		});
 
@@ -108,6 +114,7 @@ public class BtnPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent event) {
 				txt += btnDiv.getText();
+				iBtnPanel.btnPanelTextFieldIsFilled(txt);
 			}
 		});
 
