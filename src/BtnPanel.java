@@ -87,7 +87,7 @@ public class BtnPanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				txt += btnAdd.getText();
+				txt += " " + btnAdd.getText() + " ";
 				iBtnPanel.btnPanelTextFieldIsFilled(txt);
 			}
 		});
@@ -100,7 +100,7 @@ public class BtnPanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				txt += btnMul.getText();
+				txt += " " + btnMul.getText() + " ";
 				iBtnPanel.btnPanelTextFieldIsFilled(txt);
 			}
 		});
@@ -113,7 +113,7 @@ public class BtnPanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				txt += btnDiv.getText();
+				txt += " " + btnDiv.getText() + " ";
 				iBtnPanel.btnPanelTextFieldIsFilled(txt);
 			}
 		});
