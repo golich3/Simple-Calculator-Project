@@ -61,7 +61,7 @@ public class CalcFormTable extends JFrame {
 	private JMenuBar createMenuBar() {
 		JMenuBar menu = new JMenuBar();
 		JMenu file = new JMenu("File");
-		JMenuItem save = new JMenuItem();
+		JMenuItem save = new JMenuItem("Save");
 		save.setIcon(Utils.createIcon("/image/Save16.gif"));
 		save.setToolTipText("save to DB");
 
