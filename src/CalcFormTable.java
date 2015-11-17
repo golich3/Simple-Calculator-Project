@@ -1,4 +1,7 @@
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -11,6 +14,7 @@ public class CalcFormTable extends JFrame {
 	private BtnPanel btnPanel;
 	private TxtPanel TxtPanel;
 	private String framTxtField;
+	private Controller controller;
 
 	// private ICalculation iCalc;
 	public String getFramTxtField() {
@@ -64,7 +68,21 @@ public class CalcFormTable extends JFrame {
 		JMenuItem save = new JMenuItem("Save");
 		save.setIcon(Utils.createIcon("/image/Save16.gif"));
 		save.setToolTipText("save to DB");
-
+		save.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				int result = calculate(framTxtField);
+				try {
+					controller = new Controller();
+					controller.save(result);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		file.add(save);
 		menu.add(file);
 		return menu;
