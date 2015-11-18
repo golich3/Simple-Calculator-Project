@@ -75,8 +75,8 @@ public class CalcFormTable extends JFrame {
 				
 				// TODO Auto-generated method stub
 				int result = calculate(framTxtField);
+				controller = new Controller();
 				try {
-					controller = new Controller();
 					controller.save(result);
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
