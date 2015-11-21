@@ -55,9 +55,9 @@ public class CalcFormTable extends JFrame {
 			}
 
 			@Override
-			public void equalBtnIsClicked(String txt) {
-				
+			public void equalBtnIsClicked() {
 				TxtPanel.result.setText(Integer.toString(calculate(framTxtField)));
+				btnPanel.setTxt(Integer.toString(calculate(framTxtField)));
 			}
 		});
 	}

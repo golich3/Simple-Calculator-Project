@@ -9,7 +9,7 @@ public class Database {
 		// TODO Save
 		stmt = con.createStatement();
 		String sql = "INSERT INTO [JavaTraining].[dbo].[SimpleCalculator]  "
-				+ "VALUES (" + result + ")";
+				+ "VALUES (" + result + ",getdate()"+")";
 		stmt.executeUpdate(sql);
 		disconnect();
 	}

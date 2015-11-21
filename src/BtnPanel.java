@@ -9,6 +9,9 @@ import javax.swing.JPanel;
 public class BtnPanel extends JPanel {
 
 	private String txt="";
+	public void setTxt(String txt) {
+		this.txt = txt;
+	}
 	private IBtnPanel iBtnPanel;
 
 	public String getTxt() {
@@ -126,7 +129,7 @@ public class BtnPanel extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				iBtnPanel.equalBtnIsClicked(txt);
+				iBtnPanel.equalBtnIsClicked();
 			}
 		});
 
