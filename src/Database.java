@@ -11,6 +11,7 @@ public class Database {
 		String sql = "INSERT INTO [JavaTraining].[dbo].[SimpleCalculator]  "
 				+ "VALUES (" + result + ",getdate()"+")";
 		stmt.executeUpdate(sql);
+		
 		disconnect();
 	}
 
