@@ -8,26 +8,30 @@ import javax.swing.JPanel;
 
 public class BtnPanel extends JPanel {
 
-	private String txt="";
+	private String txt = "";
+	private JButton btn1;
+	private JButton btn2;
+	private IBtnPanel iBtnPanel;
+
 	public void setTxt(String txt) {
 		this.txt = txt;
 	}
-	private IBtnPanel iBtnPanel;
 
 	public String getTxt() {
 		return txt;
 	}
+
 	public void setiBtnPanel(IBtnPanel iBtnPanel) {
 		this.iBtnPanel = iBtnPanel;
 	}
-
 
 	public BtnPanel() {
 		setLayout(new GridBagLayout());
 		setBounds(10, 10, 250, 300);
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.BOTH;
-		final JButton btn1 = new JButton("1");
+
+		btn1 = new JButton("1");
 		c.weightx = 0.1;
 		c.weighty = 0.1;
 		c.gridx = 0;
@@ -43,7 +47,7 @@ public class BtnPanel extends JPanel {
 			}
 		});
 
-		final JButton btn2 = new JButton("2");
+		btn2 = new JButton("2");
 		c.gridx = 1;
 		c.gridy = 0;
 		add(btn2, c);

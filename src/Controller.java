@@ -7,7 +7,7 @@ public class Controller {
 		db = new Database();
 	}
 
-	public void save(int input) throws SQLException {
+	public void save(int input) throws SQLException, ClassNotFoundException {
 		this.db.save(input);
 	}
 }

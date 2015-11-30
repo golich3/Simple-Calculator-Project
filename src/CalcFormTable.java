@@ -13,53 +13,54 @@ public class CalcFormTable extends JFrame {
 
 	private BtnPanel btnPanel;
 	private TxtPanel TxtPanel;
-	private String framTxtField;
+	private String frameTxtField;
 	private Controller controller;
+	private Calculation calculation;
 
-	// private ICalculation iCalc;
-	public String getFramTxtField() {
-		return framTxtField;
+	public String getFrameTxtField() {
+		return frameTxtField;
 	}
 
-	public void setFramTxtField(String framTxtField) {
-		this.framTxtField = framTxtField;
+	public void setFrameTxtField(String framTxtField) {
+		this.frameTxtField = framTxtField;
 	}
-
-	// public void setiCalc(ICalculation iCalc) {
-	// this.iCalc = iCalc;
-	// }
 
 	public CalcFormTable() {
 
 		super("Calculator");
-		setBounds(700, 200, 250, 350);
-		setVisible(true);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLayout(new BorderLayout(0, 50));
-		setJMenuBar(createMenuBar());
+		setCalcFormTableUI();
 
 		TxtPanel = new TxtPanel();
 		add(TxtPanel, BorderLayout.NORTH);
-
 		btnPanel = new BtnPanel();
 		add(btnPanel, BorderLayout.CENTER);
+		calculation = new Calculation();
 
-		framTxtField = btnPanel.getTxt();
+		setFrameTxtField(btnPanel.getTxt());
 
 		btnPanel.setiBtnPanel(new IBtnPanel() {
 
 			@Override
 			public void btnPanelTextFieldIsFilled(String txt) {
-				setFramTxtField(txt);
-				TxtPanel.result.setText(framTxtField);
+				setFrameTxtField(txt);
+				TxtPanel.result.setText(frameTxtField);
 			}
 
 			@Override
 			public void equalBtnIsClicked() {
-				TxtPanel.result.setText(Integer.toString(calculate(framTxtField)));
-				btnPanel.setTxt(Integer.toString(calculate(framTxtField)));
+				TxtPanel.result.setText(Integer
+						.toString(calculation.calculate(frameTxtField)));
+				btnPanel.setTxt(Integer.toString(calculation.calculate(frameTxtField)));
 			}
 		});
+	}
+
+	private void setCalcFormTableUI() {
+		setBounds(700, 200, 250, 350);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLayout(new BorderLayout(0, 50));
+		setJMenuBar(createMenuBar());
 	}
 
 	private JMenuBar createMenuBar() {
@@ -69,17 +70,17 @@ public class CalcFormTable extends JFrame {
 		save.setIcon(Utils.createIcon("/image/Save16.gif"));
 		save.setToolTipText("save to DB");
 		save.addActionListener(new ActionListener() {
-			
+
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				// TODO Auto-generated method stub
-				int result = calculate(framTxtField);
+			public void actionPerformed(ActionEvent event) {
+
+				int result = calculation.calculate(frameTxtField);
 				controller = new Controller();
 				try {
 					controller.save(result);
+				} catch (ClassNotFoundException e) {
+					System.out.println("Driver Not Found");
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
@@ -89,44 +90,4 @@ public class CalcFormTable extends JFrame {
 		return menu;
 	}
 
-	public int calculate(String input) {
-		int result = 0;
-		String[] inputArray = input.split(" ");
-		for (int i = 0; i < inputArray.length; i++) {
-			if (inputArray[i].equals("+")) {
-				result = add(inputArray[i - 1], inputArray[i + 1]);
-				inputArray[i-1]=null;
-				inputArray[i]= null;
-				inputArray[i+1]= Integer.toString(result);
-				
-			} else if (inputArray[i].equals("*")) {
-				result = mul(inputArray[i - 1], inputArray[i + 1]);
-				inputArray[i-1]=null;
-				inputArray[i]= null;
-				inputArray[i+1]= Integer.toString(result);
-				
-			} else if (inputArray[i].equals("/")) {
-				result = div(inputArray[i - 1], inputArray[i + 1]);
-				inputArray[i-1]=null;
-				inputArray[i]= null;
-				inputArray[i+1]= Integer.toString(result);
-			}
-		}
-		return result;
-	}
-
-	private int add(String s1, String s2) {
-		int s = Integer.parseInt(s1) + Integer.parseInt(s2);
-		return s;
-	}
-
-	private int mul(String s1, String s2) {
-		int s = Integer.parseInt(s1) * Integer.parseInt(s2);
-		return s;
-	}
-
-	private int div(String s1, String s2) {
-		int s = Integer.parseInt(s1) / Integer.parseInt(s2);
-		return s;
-	}
 }
