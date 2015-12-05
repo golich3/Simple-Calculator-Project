@@ -9,7 +9,7 @@ public class Starter {
 				new CalcFormTable();
 			}
 		});
-
+		System.out.print("test");
 	
 	}
 
