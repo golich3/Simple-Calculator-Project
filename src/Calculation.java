@@ -17,20 +17,18 @@ public class Calculation {
 				inputArray[i + 1] = Integer.toString(result);
 
 			} else if (inputArray[i].equals("/")) {
-				if (inputArray[i + 1]!= "0"){
+				if (inputArray[i + 1] != "0") {
 					result = div(inputArray[i - 1], inputArray[i + 1]);
 					inputArray[i - 1] = null;
 					inputArray[i] = null;
 					inputArray[i + 1] = Integer.toString(result);
-				}else {
+				} else {
 					System.out.println("Denominator is Zero");
 				}
 			}
 		}
 		return result;
 	}
-
-
 
 	private int add(String s1, String s2) {
 		int s = Integer.parseInt(s1) + Integer.parseInt(s2);

@@ -21,8 +21,8 @@ public class CalcFormTable extends JFrame {
 		return frameTxtField;
 	}
 
-	public void setFrameTxtField(String framTxtField) {
-		this.frameTxtField = framTxtField;
+	public void setFrameTxtField(String frameTxtField) {
+		this.frameTxtField = frameTxtField;
 	}
 
 	public CalcFormTable() {
@@ -48,8 +48,7 @@ public class CalcFormTable extends JFrame {
 
 			@Override
 			public void equalBtnIsClicked() {
-				TxtPanel.result.setText(Integer
-						.toString(calculation.calculate(frameTxtField)));
+				TxtPanel.result.setText(Integer.toString(calculation.calculate(frameTxtField)));
 				btnPanel.setTxt(Integer.toString(calculation.calculate(frameTxtField)));
 			}
 		});

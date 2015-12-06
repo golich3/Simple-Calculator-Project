@@ -6,12 +6,7 @@ public class Database {
 
 	public void save(int result) throws SQLException, ClassNotFoundException {
 		connect();
-		// TODO Save
-		stmt = con.createStatement();
-		String sql = "INSERT INTO [JavaTraining].[dbo].[SimpleCalculator]  "
-				+ "VALUES (" + result + ",getdate()" + ")";
-		stmt.executeUpdate(sql);
-
+		runQuery(result);
 		disconnect();
 	}
 
@@ -30,6 +25,15 @@ public class Database {
 			return false;
 		}
 		return true;
+	}
+
+	private void runQuery(int result) throws SQLException {
+		// TODO Save
+		stmt = con.createStatement();
+		String sql = "INSERT INTO [JavaTraining].[dbo].[SimpleCalculator]  "
+				+ "VALUES (" + result + ",getdate()" + ")";
+		stmt.executeUpdate(sql);
+		System.out.println("Save");
 	}
 
 	public void disconnect() {
