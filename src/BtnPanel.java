@@ -34,7 +34,7 @@ public class BtnPanel extends JPanel implements ActionListener {
 
 		setLayout(new GridBagLayout());
 		setBounds(10, 10, 250, 300);
-		GridBagConstraints c = setPublicBtnSpecifications();
+		GridBagConstraints c = setBtnPublicSpecifications();
 
 		btn1 = new JButton("1");
 		btn1.addActionListener(this);
@@ -70,7 +70,7 @@ public class BtnPanel extends JPanel implements ActionListener {
 	}
 
 
-	private GridBagConstraints setPublicBtnSpecifications() {
+	private GridBagConstraints setBtnPublicSpecifications() {
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.BOTH;
 		c.anchor = GridBagConstraints.WEST;

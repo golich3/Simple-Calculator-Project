@@ -4,18 +4,21 @@ public class Database {
 	public Connection con;
 	Statement stmt = null;
 
-	public void save(int result) throws SQLException, ClassNotFoundException {
+	public void save(int result) throws SQLException {
 		connect();
 		runQuery(result);
 		disconnect();
 	}
 
-	public boolean connect() throws ClassNotFoundException, SQLException {
+	public boolean connect() throws SQLException {
 		if (con != null) {
 			return true;
 		}
-
-		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+		try {
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 
 		String connectionURL = "jdbc:sqlserver://swsql.mahanair.aero;user=sa;password=123;database=javaTraining";
 		con = DriverManager.getConnection(connectionURL);
